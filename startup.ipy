@@ -1,7 +1,0 @@
-from jupyterthemes import jtplot
-
-jtplot.style(theme='gruvboxd')
-
-jtplot.style(context='talk', fscale=1.4, spines=False, gridlines='--')
-
-jtplot.style(ticks=True, grid=False, figsize=(20,10))
