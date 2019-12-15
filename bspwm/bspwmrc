@@ -1,0 +1,35 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc monitor -n 0 -d 1 2 3 4 5 6 7 8 9 10 
+bspc monitor HDMI-1 -n 1 -d 1 2 3 4 5 6 7 8 9 10
+
+my_laptop_external_monitor=$(xrandr --query | grep 'HDMI-1')
+if [[ $my_laptop_external_monitor = *connected* ]]; then
+    xrandr --output eDP-1 --primary --mode 1920x1080 --rotate normal --output HDMI-1 --mode 1920x1080 --rotate normal --same-as eDP-1
+fi
+
+bspc config border_width         1
+bspc config window_gap           1
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+bspc config single_monocle       true
+bspc config normal_border_color  "#424242"
+bspc config focused_border_color "#008ec4"
+
+bspc rule -a Emacs state=tiled
+bspc rule -a Zathura state=tiled
+bspc rule -a '*:albert' focus=on
+
+compton -b &
+dunst &
+nitrogen --restore &
+nm-applet &
+albert &
+$HOME/.config/polybar/launch.sh
+
+redshift -O 3600
+
