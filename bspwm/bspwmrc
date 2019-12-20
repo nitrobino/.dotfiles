@@ -13,12 +13,15 @@ fi
 bspc config border_width         1
 bspc config window_gap           1
 
+bspc config initial_polarity first_child
+bspc config focus_follows_pointer true
 bspc config split_ratio          0.52
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
 bspc config normal_border_color  "#424242"
-bspc config focused_border_color "#008ec4"
+bspc config focused_border_color "#00FFFF"
+bspc window --presel right
 
 bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
@@ -26,7 +29,7 @@ bspc rule -a '*:albert' focus=on
 
 compton -b &
 dunst &
-nitrogen --restore &
+#nitrogen --restore &
 nm-applet &
 albert &
 $HOME/.config/polybar/launch.sh

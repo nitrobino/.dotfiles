@@ -1,6 +1,9 @@
 #
 # Custom keybindings
 # 
+#background 
+super + ctrl + {1-7}
+    nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
 
 # browser
 super + w
