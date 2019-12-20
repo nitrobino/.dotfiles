@@ -23,7 +23,6 @@ bspc config normal_border_color  "#424242"
 bspc config focused_border_color "#00FFFF"
 bspc window --presel right
 
-bspc rule -a Emacs state=tiled
 bspc rule -a Zathura state=tiled
 bspc rule -a '*:albert' focus=on
 

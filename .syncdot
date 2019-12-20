@@ -1,0 +1,18 @@
+#!/bin/zsh
+
+rsync -avu --delete ~/.zshrc ~/Documents/.dotfiles
+rsync -avu --delete ~/.zsh_history ~/Documents/.dotfiles
+rsync -avu --delete ~/.vimrc ~/Documents/.dotfiles
+rsync -avu --delete ~/.vimrc ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/bspwm ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/sxhkd ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/kitty ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/dunst ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/zathura ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/polybar ~/Documents/.dotfiles
+
+ cd ~/Documents/.dotfiles
+
+git commit -a -m "update"
+git add --all 
+git push origin master
