@@ -14,8 +14,9 @@ Plug 'AlessandroYorba/Alduin' "airline
 Plug 'jiangmiao/auto-pairs' "auto completes [] and ()
 Plug 'scrooloose/nerdtree' "See dirs and files
 call plug#end()
-
+"
 "Global settings
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 set nocp "make sure nvim doesn't act like vi
 filetype plugin indent on    " required
 syntax on "activates syntax highlighting among other things
@@ -27,7 +28,7 @@ set foldmethod=indent "fold your code.
 set foldlevel=99
 set encoding=utf-8 "required by YCM
 set background=dark "Color scheme settings
-set termguicolors "True colors term support
+"set termguicolors "True colors term support
 set splitbelow splitright
 
 "Extra
@@ -43,4 +44,5 @@ let g:gruvbox_termcolors='256'
 let g:AutoPairsFlyMode = 1
 let g:fzf_buffers_jump = 1
 let g:fzf_vim_statusline = 0
+
 colorscheme gruvbox "colorscheme
