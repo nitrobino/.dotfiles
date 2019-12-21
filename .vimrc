@@ -1,8 +1,10 @@
-set relativenumber
-syntax on
-set laststatus=2
-
-
+"Auto Download
+"if empty(glob('~/.vim/autoload/plug.vim'))
+"	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+"endif
+"
 "plugins!
 call plug#begin('~/.vim/plugged')
 Plug 'vim-airline/vim-airline' "airline see bottom of bar
@@ -24,8 +26,6 @@ set rnu nu "sets line numbers
 set foldmethod=indent "fold your code.
 set foldlevel=99
 set encoding=utf-8 "required by YCM
-set noshowmode "make the current mode label disappear - I have airline for this.
-set conceallevel=1 "Allows me to conceal latex syntax if not on line
 set background=dark "Color scheme settings
 set termguicolors "True colors term support
 set splitbelow splitright

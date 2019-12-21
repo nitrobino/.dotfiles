@@ -10,6 +10,7 @@ rsync -avu --delete ~/.config/kitty ~/Documents/.dotfiles
 rsync -avu --delete ~/.config/dunst ~/Documents/.dotfiles
 rsync -avu --delete ~/.config/zathura ~/Documents/.dotfiles
 rsync -avu --delete ~/.config/polybar ~/Documents/.dotfiles
+rsync -avu --delete ~/.config/rofi ~/Documents/.dotfiles
 
  cd ~/Documents/.dotfiles
 
