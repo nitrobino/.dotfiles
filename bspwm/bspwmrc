@@ -25,6 +25,7 @@ bspc window --presel right
 
 bspc rule -a Zathura state=tiled
 bspc rule -a '*:albert' focus=on
+bspc rule -a '*:unimatrix' state=fullscreen
 
 compton -b &
 dunst &

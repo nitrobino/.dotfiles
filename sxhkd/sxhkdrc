@@ -1,6 +1,11 @@
 #
 # Custom keybindings
 # 
+#
+#
+super + shift + m
+    kitty -e unimatrix -s 95 
+
 #background 
 super + ctrl + {1-7}
     nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
@@ -25,9 +30,8 @@ super + x
 Print
     scrot
 
-# window state
 super + {e, shift+e}
-	bspc node -t {fullscreen,tiled}
+        bspc node -t {tiled,fullscreen}
 
 
 # redshift
