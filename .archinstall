@@ -1,0 +1,122 @@
+# Arch installation guide
+
+loadkeys pt-latin1
+
+timedatectl set-ntp true
+
+(.....)
+
+# from now on: sda1 - boot partition; sda2 - root partition;
+
+mount /dev/sda2 /mnt
+
+mkdir /mnt/boot
+
+mount /dev/sda1 /mnt/boot
+
+pacstrap /mnt base base-devel linux-lts linux-firmware intel-ucode vim networkmanager dhcpcd
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
+
+hwclock --systohc
+
+vim /etc/locale.gen # uncomment en_US.UTF-8
+
+locale-gen
+
+vim /etc/locale.conf # write:"LANG=en_US.UTF-8"
+
+vim /etc/vconsole.conf # write:"KEYMAP=pt-latin1"
+
+vim /etc/hostname # write your hostname e.g. $myhostname = ug: "ug"
+
+vim /etc/hosts # write :
+"127.0.0.1	localhost
+::1		localhost
+127.0.1.1	ug.localdomain	ug"
+
+passwd # root password
+
+pacman -S grub efibootmgr
+
+# not UEFI
+grub-install --target=i386-pc /dev/sda
+
+# UEFI
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable dhcpcd
+
+exit # exit arch-chroot
+
+shutdown now
+
+#remove usb drive and boot pc
+
+# login: root
+
+useradd -m hugens # example $username = hugens
+
+passwd hugens # user password, can be different from root password
+
+usermod -aG wheel,audio,video,optical,storage hugens
+
+pacman -S vi git
+
+visudo # uncomment %wheel ALL=(ALL) ALL
+
+su hugens
+
+cd
+
+localectl set-x11-keymap pt
+
+git clone https://aur.archlinux.org/yay.git
+
+cd yay
+
+makepkg -si
+
+yay -S xorg compton bspwm sxhkd 
+
+yay -S dunst kitty polybar rofi zsh zathura zathura-djvu zathura-pdf-poppler
+	albert firefox qutebrowser gtk-theme-arc-gruvbox-git ttf-dejavu siji-git neofetch 
+	htop lxappearance network-manager-applet nm-connection-editor pulseaudio-ctl ranger redshift 
+	qbittorrent rsync simplescreenrecorder slock spotify telegram-desktop tlp vlc arandr thunar
+	thunar-volman gvfs nitrogen lightdm lightdm-gtk-greeter xfce4-terminal
+
+git clone https://github.com/lhugens/.dotfiles
+
+cp -r .dotfiles/* .config/
+
+systemctl enable --now NetworkManager.service tlp.service tlp-sleep.service 
+
+systemctl enable --now lightdm.service
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
