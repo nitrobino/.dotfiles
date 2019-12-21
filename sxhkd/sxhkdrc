@@ -4,31 +4,31 @@
 #
 #
 super + shift + m
-    kitty -e unimatrix -s 95 
+	kitty -e unimatrix -s 95 
 
 #background 
 super + ctrl + {1-7}
-    nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
+	nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
 
 # browser
 super + w
-    firefox
+    	firefox
 
 # file manager
 super + f
-    thunar	
+    	thunar	
 
 # editor
 super + F4
-    emacs
+    	emacs
 
 # lock
 super + x
-    slock & systemctl suspend
+	slock & systemctl suspend
 
 # scrot
 Print
-    scrot
+    	scrot
 
 super + {e, shift+e}
         bspc node -t {tiled,fullscreen}
@@ -41,11 +41,8 @@ super + shift + a
 	redshift -x
 
 # 0/50 screen brightness
-super + s
-	enlighten -100%
-super + shift + s
-	enlighten +50%
-
+super + {s,shift+s}
+	xbacklight {-dec 100,-inc 25}
 # tabbed zathura
 #super + z
 #	tabbed zathura -e && disown && exit
@@ -64,7 +61,7 @@ super + Return
 
 # program launcher
 super + @space 
-    rofi -show drun -show-icons
+    rofi -show drun -show-icons -columns 2
 
 # make sxhkd reload its configuration files:
 super + Escape
