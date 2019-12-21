@@ -4,7 +4,8 @@ loadkeys pt-latin1
 
 timedatectl set-ntp true
 
-(.....)
+# create or use two partitions: boot and root
+# use cfdisk to create a 512M boot partition, make it bootable and use the rest for the root partition
 
 # from now on: sda1 - boot partition; sda2 - root partition;
 
