@@ -59,7 +59,7 @@ font-2 = siji:pixelsize=10;1
 modules-left = bspwm i3
 modules-center = mpd
 ;modules-right = updates-arch eth wlan filesystem alsa memory temperature xbacklight cpu battery date 
-modules-right = alsa xbacklight temperature date battery
+modules-right = alsa backlight-acpi filesystem memory cpu temperature battery date 
 
 tray-position = right
 tray-padding = 2
@@ -271,7 +271,7 @@ format-disconnected =
 type = internal/date
 interval = 5
 
-date =  %d-%m 
+date =  %A %d-%m 
 date-alt = " %Y-%m-%d"
 
 time = %H:%M 
