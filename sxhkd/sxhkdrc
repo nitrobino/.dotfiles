@@ -4,7 +4,7 @@
 #
 #
 super + shift + m
-	kitty -e unimatrix -s 95 
+	kitty -e unimatrix -l k -s 95 
 
 #background 
 super + ctrl + {1-7}

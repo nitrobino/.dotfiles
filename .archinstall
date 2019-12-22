@@ -84,13 +84,27 @@ cd yay
 
 makepkg -si
 
-yay -S xorg compton bspwm sxhkd 
+#################
+yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter # essencial
 
-yay -S dunst kitty polybar rofi zsh zathura zathura-djvu zathura-pdf-poppler
-	albert firefox qutebrowser gtk-theme-arc-gruvbox-git ttf-dejavu siji-git neofetch 
-	htop lxappearance network-manager-applet nm-connection-editor pulseaudio-ctl ranger redshift 
-	qbittorrent rsync simplescreenrecorder slock spotify telegram-desktop tlp vlc arandr thunar
-	thunar-volman gvfs nitrogen lightdm lightdm-gtk-greeter xfce4-terminal
+yay -S xfce4-terminal kitty zsh ranger neofetch asciiquarium htop rsync # terminal, shell
+
+yay -S ttf-dejavu siji-git otf-ipafont # fonts
+
+yay -S zathura zathura-djvu zathura-pdf-poppler # pdf and djvu viewer
+
+yay -S slock redshift arandr nitrogen # screen
+
+yay -S polybar albert rofi dunst # bar, finders, notifications
+
+yay -S lxappearance gtk-theme-arc-gruvbox-git # gtk+ theme
+
+yay -S thunar thunar-volman gfvs # file manager
+
+yay -S firefox qutebrowser network-manager-applet nm-connection-editor # browsers and connection manager
+
+yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegra-desktop spotify audacity # miscellaneous
+#########################
 
 git clone https://github.com/lhugens/.dotfiles
 
