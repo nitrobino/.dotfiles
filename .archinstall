@@ -85,7 +85,7 @@ cd yay
 makepkg -si
 
 #################
-yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter # essencial
+yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter acpilight # essencial
 
 yay -S xfce4-terminal kitty zsh ranger neofetch asciiquarium htop rsync # terminal, shell
 
@@ -103,7 +103,7 @@ yay -S thunar thunar-volman gfvs # file manager
 
 yay -S firefox qutebrowser network-manager-applet nm-connection-editor # browsers and connection manager
 
-yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegra-desktop spotify audacity # miscellaneous
+yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegram-desktop spotify audacity # miscellaneous
 #########################
 
 git clone https://github.com/lhugens/.dotfiles

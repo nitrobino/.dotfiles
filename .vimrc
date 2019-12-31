@@ -1,4 +1,3 @@
-"Auto Download
 "if empty(glob('~/.vim/autoload/plug.vim'))
 "	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 "				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -13,23 +12,58 @@ Plug 'morhetz/gruvbox' "Theme
 Plug 'AlessandroYorba/Alduin' "airline
 Plug 'jiangmiao/auto-pairs' "auto completes [] and ()
 Plug 'scrooloose/nerdtree' "See dirs and files
+Plug 'qxxxb/vim-searchhi' "Highlight search in cursor with a different color
 call plug#end()
 "
-"Global settings
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-set nocp "make sure nvim doesn't act like vi
+"Required
 filetype plugin indent on    " required
-syntax on "activates syntax highlighting among other things
-set hidden "work with multiple unsaved buffers.
-set backspace=indent,eol,start "Fixes the backspace
-set incsearch "highlights as you search
-set rnu nu "sets line numbers
-set foldmethod=indent "fold your code.
-set foldlevel=99
-set encoding=utf-8 "required by YCM
-set background=dark "Color scheme settings
-"set termguicolors "True colors term support
+
+"Split tabs
 set splitbelow splitright
+
+" Highlighting
+syntax on
+
+set encoding=utf-8
+
+" History
+set history=1000
+
+" Display
+set ls=2
+set showmode
+set showcmd
+set modeline
+set ruler
+set title
+set rnu
+
+" Searching
+set ignorecase
+set smartcase
+set gdefault
+set hlsearch
+" Press Space to turn off highlighting and clear any message already displayed.
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+set showmatch
+set incsearch
+
+" Enable jumping into files in a search buffer
+set hidden 
+
+" Disable mouse
+set mouse=
+
+" Visual prompt for command completion
+set wildmenu
+
+" Make backspace a bit nicer
+set backspace=eol,start,indent
+
+" Switch tabs
+map 8 <Esc>:tabe 
+map 9 gT
+map 0 gt
 
 "Extra
 let g:airline_powerline_fonts = 1
@@ -46,3 +80,5 @@ let g:fzf_buffers_jump = 1
 let g:fzf_vim_statusline = 0
 
 colorscheme gruvbox "colorscheme
+autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+set background=dark "Color scheme settings
