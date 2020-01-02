@@ -101,6 +101,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 alias cl="clear"
 alias jp="source ~/Documents/.dotfiles/jupyter/.jp"
+alias pytools="source ~/Documents/.dotfiles/jupyter/.pytools"
 alias branco="source ~/Documents/.dotfiles/jupyter/.branco"
 alias preto="source ~/Documents/.dotfiles/jupyter/.preto"
 alias virtual="source ~/Documents/.dotfiles/jupyter/.virtual"
