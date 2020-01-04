@@ -15,7 +15,7 @@ bspc config window_gap           1
 
 bspc config initial_polarity first_child
 bspc config focus_follows_pointer true
-bspc config split_ratio          0.30
+bspc config split_ratio          0.45
 bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 bspc config single_monocle       true
@@ -30,11 +30,11 @@ bspc rule -a '*:unimatrix' state=fullscreen
 
 compton -b &
 dunst &
-#nitrogen --restore &
 nm-applet &
 albert &
 unclutter --ignore-scrolling --timeout 2 &
 $HOME/.config/polybar/launch.sh
 
 redshift -O 3600
-
+#pscircle --output=./Pictures/pscircle.png --background-color=000000ff
+#nitrogen --set-zoom-fill --save ~/Pictures/pscircle.png

@@ -93,13 +93,13 @@ yay -S ttf-dejavu siji-git otf-ipafont # fonts
 
 yay -S zathura zathura-djvu zathura-pdf-poppler # pdf and djvu viewer
 
-yay -S slock redshift arandr nitrogen # screen
+yay -S slock redshift arandr nitrogen unclutter # screen
 
 yay -S polybar albert rofi dunst # bar, finders, notifications
 
 yay -S lxappearance gtk-theme-arc-gruvbox-git # gtk+ theme
 
-yay -S thunar thunar-volman gfvs # file manager
+yay -S thunar thunar-volman gfvs ntfs-3g # file manager
 
 yay -S firefox qutebrowser network-manager-applet nm-connection-editor # browsers and connection manager
 
