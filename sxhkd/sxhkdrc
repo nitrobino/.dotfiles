@@ -12,7 +12,7 @@ super + ctrl + {1-7}
 
 # browser
 super + w
-    	firefox
+    	brave
 
 # file manager
 super + f
