@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-rsync -avu --delete /home/hugens/Documents /run/media/hugens/L_HUGENS/Arch 
-rsync -avu --delete /home/hugens/Downloads /run/media/hugens/L_HUGENS/Arch 
-rsync -avu --delete /home/hugens/Pictures /run/media/hugens/L_HUGENS/Arch 
-rsync -avu --delete /home/hugens/Videos /run/media/hugens/L_HUGENS/Arch 
+rsync -avu --delete /home/hugens/Documents /run/media/hugens/L_HUGENS/_Arch 
+rsync -avu --delete /home/hugens/Downloads /run/media/hugens/L_HUGENS/_Arch 
+rsync -avu --delete /home/hugens/Pictures /run/media/hugens/L_HUGENS/_Arch 
+rsync -avu --delete /home/hugens/Videos /run/media/hugens/L_HUGENS/_Arch 

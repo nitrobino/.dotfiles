@@ -100,6 +100,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 alias cl="clear"
+alias rg="ranger"
 alias jp="source ~/Documents/.dotfiles/jupyter/.jp"
 alias pytools="source ~/Documents/.dotfiles/jupyter/.pytools"
 alias branco="source ~/Documents/.dotfiles/jupyter/.branco"
