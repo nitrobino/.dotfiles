@@ -87,7 +87,7 @@ makepkg -si
 #################
 yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter acpilight # essencial
 
-yay -S xfce4-terminal kitty zsh ranger neofetch asciiquarium htop rsync # terminal, shell
+yay -S xfce4-terminal kitty zsh ranger neofetch htop rsync # terminal, shell
 
 yay -S ttf-dejavu siji-git otf-ipafont # fonts
 
