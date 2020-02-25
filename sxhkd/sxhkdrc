@@ -6,6 +6,9 @@
 super + shift + m
 	kitty -e unimatrix -af -l k -s 95
 
+super + d
+	kitty -e ranger ~/Documents
+
 #background 
 super + ctrl + {1-7}
 	nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
