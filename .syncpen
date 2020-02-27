@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+rsync -avu --delete /home/hugens/Documents/.henon /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/CONDENSADA /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/JP /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/LAB_AC /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/MQII /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/PARTICULAS /run/media/hugens/HUGENS-DT/Documents
+rsync -avu --delete /home/hugens/Documents/OTICA /run/media/hugens/HUGENS-DT/Documents
