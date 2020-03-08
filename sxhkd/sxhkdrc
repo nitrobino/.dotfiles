@@ -9,6 +9,9 @@ super + shift + m
 super + d
 	kitty -e ranger ~/Documents
 
+super + t 
+	kitty -e vim ~/Documents/.todo
+	
 #background 
 super + ctrl + {1-7}
 	nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
