@@ -97,6 +97,8 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+export EDITOR=vim
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 alias cl="clear"
@@ -106,7 +108,11 @@ alias pytools="source ~/Documents/.dotfiles/jupyter/.pytools"
 alias branco="source ~/Documents/.dotfiles/jupyter/.branco"
 alias preto="source ~/Documents/.dotfiles/jupyter/.preto"
 alias virtual="source ~/Documents/.dotfiles/jupyter/.virtual"
-alias grid="ssh fc-up201705764@submit.grid.fe.up.pt"
 alias syncdot="source ~/Documents/.dotfiles/.syncdot"
 alias syncdisk="source ~/Documents/.dotfiles/.syncdisk"
 alias syncpen="source ~/Documents/.dotfiles/.syncpen"
+alias bar2="source ~/Documents/.dotfiles/.bar2"
+alias push="source ~/Documents/.dotfiles/.push"
+
+alias grid="ssh fc-up201705764@submit.grid.fe.up.pt"
+alias pires="ssh fc-up201201453@submit.grid.fe.up.pt"

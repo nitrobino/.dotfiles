@@ -6,6 +6,9 @@
 super + shift + m
 	kitty -e unimatrix -af -l k -s 95
 
+super + p 
+	source ~/Documents/.dotfiles/.bar2
+
 super + d
 	kitty -e ranger ~/Documents
 

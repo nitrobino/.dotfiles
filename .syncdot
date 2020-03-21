@@ -1,7 +1,6 @@
 #!/bin/zsh
 
 rsync -avu --delete ~/.zshrc ~/Documents/.dotfiles
-rsync -avu --delete ~/.zsh_history ~/Documents/.dotfiles
 rsync -avu --delete ~/.vimrc ~/Documents/.dotfiles
 rsync -avu --delete ~/.config/bspwm ~/Documents/.dotfiles
 rsync -avu --delete ~/.config/sxhkd ~/Documents/.dotfiles
