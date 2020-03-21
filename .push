@@ -1,0 +1,2 @@
+rm -r ~/Documents/.henon/LEONARDO
+scp -r fc-up201201453@submit.grid.fe.up.pt:~/LEONARDO ~/Documents/.henon 
