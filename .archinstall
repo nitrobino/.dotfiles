@@ -100,12 +100,14 @@ yay -S ttf-dejavu siji-git otf-ipafont
 yay -S zathura zathura-djvu zathura-pdf-poppler 
 # display
 yay -S slock redshift arandr nitrogen unclutter 
+# audio
+yay -S pulseaudio pulseaudio-alsa alsa-utils
 # bar, file explorer, notifications
 yay -S polybar albert rofi dunst 
 # gtk+ theme
 yay -S lxappearance gtk-theme-arc-gruvbox-git 
 # file manager
-yay -S thunar thunar-volman gfvs ntfs-3g
+yay -S thunar thunar-volman gvfs ntfs-3g
 # browsers, connection manager
 yay -S firefox brave qutebrowser chromium network-manager-applet nm-connection-editor 
 # miscellaneous
@@ -119,25 +121,3 @@ cp -r .dotfiles/* .config/
 systemctl enable --now NetworkManager.service tlp.service tlp-sleep.service 
 
 systemctl enable --now lightdm.service
-	
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
