@@ -4,10 +4,15 @@ loadkeys pt-latin1
 
 timedatectl set-ntp true
 
-# create or use two partitions: boot and root
-# use cfdisk to create a 512M boot partition, make it bootable and use the rest for the root partition
+cfdisk
 
+# create two partitions. one boot partition with 512M (if necessary) and make it bootable
+# use the rest for root partition
 # from now on: sda1 - boot partition; sda2 - root partition;
+
+mkfs.vfat -F32 /dev/sda1
+
+mkfs.ext4 /dev/sda2
 
 mount /dev/sda2 /mnt
 
@@ -23,7 +28,7 @@ arch-chroot /mnt
 
 ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
 
-hwclock --systohc
+hwclock --systohc # not important if errors reported
 
 vim /etc/locale.gen # uncomment en_US.UTF-8
 
@@ -85,25 +90,26 @@ cd yay
 makepkg -si
 
 #################
-yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter acpilight # essencial
-
-yay -S xfce4-terminal kitty zsh ranger neofetch htop rsync # terminal, shell
-
-yay -S ttf-dejavu siji-git otf-ipafont # fonts
-
-yay -S zathura zathura-djvu zathura-pdf-poppler # pdf and djvu viewer
-
-yay -S slock redshift arandr nitrogen unclutter # screen
-
-yay -S polybar albert rofi dunst # bar, finders, notifications
-
-yay -S lxappearance gtk-theme-arc-gruvbox-git # gtk+ theme
-
-yay -S thunar thunar-volman gfvs ntfs-3g # file manager
-
-yay -S firefox brave qutebrowser network-manager-applet nm-connection-editor # browsers and connection manager
-
-yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegram-desktop spotify audacity # miscellaneous
+# essencial
+yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter acpilight 
+# terminal, shell
+yay -S xfce4-terminal kitty zsh ranger neofetch htop rsync
+# fonts
+yay -S ttf-dejavu siji-git otf-ipafont
+# pdf and djvu reader
+yay -S zathura zathura-djvu zathura-pdf-poppler 
+# display
+yay -S slock redshift arandr nitrogen unclutter 
+# bar, file explorer, notifications
+yay -S polybar albert rofi dunst 
+# gtk+ theme
+yay -S lxappearance gtk-theme-arc-gruvbox-git 
+# file manager
+yay -S thunar thunar-volman gfvs ntfs-3g
+# browsers, connection manager
+yay -S firefox brave qutebrowser chromium network-manager-applet nm-connection-editor 
+# miscellaneous
+yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegram-desktop spotify audacity 
 #########################
 
 git clone https://github.com/lhugens/.dotfiles
