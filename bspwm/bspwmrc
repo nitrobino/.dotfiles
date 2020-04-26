@@ -12,7 +12,7 @@ else
 fi
 
 bspc config border_width         1
-bspc config window_gap           2
+bspc config window_gap           10
 
 #bspc config initial_polarity first_child
 bspc config focus_follows_pointer true
@@ -35,6 +35,8 @@ nm-applet &
 albert &
 unclutter --ignore-scrolling --timeout 2 &
 $HOME/.config/polybar/launch.sh
+
+dwall -catalina &
 
 redshift -O 3600
 
