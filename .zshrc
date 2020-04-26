@@ -18,4 +18,5 @@ alias m="cd ~/Documents/MASTERS && l"
 yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(title)s.%(ext)s" -v $1}
 make(){ g++ -I/usr/local/include -L/usr/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 }
 fword(){ find / 2>/dev/null | grep -a "$1"  }
-
+scanhosts(){ nmap -sLP 192.168.1.0/24 | grep -a "lan" }
+toshiba(){ ssh hugens@$(nmap -sLP 192.168.1.0/24 | grep -a "neeko" | awk -F '[()]' '{print $2}') }
