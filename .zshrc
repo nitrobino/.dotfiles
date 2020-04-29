@@ -1,9 +1,9 @@
 # oh-my-zsh config
+export EDITOR=vim
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="bira"
 plugins=(git copydir web-search zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
-export EDITOR=vim
 
 # aliases
 alias cl="clear"
