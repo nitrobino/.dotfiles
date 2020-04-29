@@ -8,15 +8,15 @@ export EDITOR=vim
 # aliases
 alias cl="clear"
 alias rg="ranger"
-alias jp="source ~/Documents/.dotfiles/jupyter/.jp"
-alias grid="ssh fc-up201705764@submit.grid.fe.up.pt"
-alias pires="ssh fc-up201201453@submit.grid.fe.up.pt"
-alias push="source ~/Documents/.dotfiles/.push"
-alias m="cd ~/Documents/MASTERS && l"
 
 # functions
 yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(title)s.%(ext)s" -v $1}
 make(){ g++ -I/usr/local/include -L/usr/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 }
 fword(){ find / 2>/dev/null | grep -ia "$1"  }
 scanhosts(){ nmap -sLP 192.168.1.0/24 | grep -a "lan" }
-toshiba(){ ssh hugens@$(nmap -sLP 192.168.1.0/24 | grep -a "neeko" | awk -F '[()]' '{print $2}') }
+paclog(){ grep -iE 'installed|upgraded' /var/log/pacman.log }
+
+# local settings
+if [ -f ~/.localrc ]; then 
+  source ~/.localrc
+fi
