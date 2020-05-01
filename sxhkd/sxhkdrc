@@ -1,13 +1,7 @@
-#
 # Custom keybindings
-# 
-#
-#
+
 super + shift + m
 	kitty -e unimatrix -af -l k -s 95
-
-super + p 
-	source ~/Documents/.dotfiles/.bar2
 
 super + d
 	kitty -e ranger ~/Documents
@@ -15,46 +9,29 @@ super + d
 super + t 
 	kitty -e vim ~/Documents/.todo
 	
-#background 
-super + ctrl + {1-7}
-	nitrogen --set-zoom-fill --save ~/Documents/.wallpapers/{1-7}.jpg
-
 # browser
 super + w
     	brave
 
 # file manager
-super + f
+super + e
     	thunar	
 
-# editor
-super + F4
-    	emacs
-
 # lock
-super + x
-	slock & systemctl suspend
-
-# scrot
-Print
-    	scrot
-
-super + {e, shift+e}
-        bspc node -t {tiled,fullscreen}
-
+super + {_,shift + }p
+	{slock & systemctl suspend, shutdown now}
 
 # redshift
-super + a
-	redshift -O 3600
-super + shift + a
-	redshift -x
+super + {_,shift + }a
+	redshift {-O 3600,-x}
 
 # 0/50 screen brightness
-super + {s,shift+s}
+super + {_,shift + }s
 	xbacklight {-dec 100,-inc 25}
-# tabbed zathura
-#super + z
-#	tabbed zathura -e && disown && exit
+
+# focus the last node/desktop
+super + Tab
+	bspc node -f last
 
 # close and kill
 super + {_,shift + }q
@@ -100,17 +77,13 @@ super + y
 super + g
 	bspc node -s biggest
 
-
-# state/flags
-
-
 # set the window state
 super + {t,shift + t,s,f}
 	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
+# super + ctrl + {m,x,y,z}
+# 	bspc node -g {marked,locked,sticky,private}
 
 
 # focus/swap
@@ -151,20 +124,20 @@ super + {_,shift + }{1-9,0}
 
 
 # preselect the direction
-super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
-
-# preselect the ratio
-super + ctrl + {1-9}
-	bspc node -o 0.{1-9}
-
-# cancel the preselection for the focused node
-super + ctrl + space
-	bspc node -p cancel
-
-# cancel the preselection for the focused desktop
-super + ctrl + shift + space
-	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+# super + ctrl + {h,j,k,l}
+# 	bspc node -p {west,south,north,east}
+# 
+# # preselect the ratio
+# super + ctrl + {1-9}
+# 	bspc node -o 0.{1-9}
+# 
+# # cancel the preselection for the focused node
+# super + ctrl + space
+# 	bspc node -p cancel
+# 
+# # cancel the preselection for the focused desktop
+# super + ctrl + shift + space
+# 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
 
 # move/resize

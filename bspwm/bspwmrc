@@ -35,13 +35,10 @@ nm-applet &
 albert &
 unclutter --ignore-scrolling --timeout 2 &
 $HOME/.config/polybar/launch.sh
-
-dwall -catalina &
-
 redshift -O 3600
-
 xset s off
-
 killall -SIGUSR1 dunst
+
+#dwall -catalina &
 #pscircle --output=./Pictures/pscircle.png --background-color=000000ff
 #nitrogen --set-zoom-fill --save ~/Pictures/pscircle.png
