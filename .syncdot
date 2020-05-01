@@ -1,18 +1,18 @@
 #!/bin/zsh
 
-rsync -avu --delete ~/.zshrc ~/Documents/.dotfiles
-rsync -avu --delete ~/.vimrc ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/bspwm ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/sxhkd ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/kitty ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/dunst ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/zathura ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/polybar ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/rofi ~/Documents/.dotfiles
-rsync -avu --delete ~/.config/albert ~/Documents/.dotfiles
+rsync -avu --delete ~/.zshrc 		~/.dotfiles
+rsync -avu --delete ~/.vimrc 		~/.dotfiles
+rsync -avu --delete ~/.config/bspwm 	~/.dotfiles
+rsync -avu --delete ~/.config/sxhkd 	~/.dotfiles
+rsync -avu --delete ~/.config/kitty 	~/.dotfiles
+rsync -avu --delete ~/.config/dunst 	~/.dotfiles
+rsync -avu --delete ~/.config/zathura 	~/.dotfiles
+rsync -avu --delete ~/.config/polybar 	~/.dotfiles
+rsync -avu --delete ~/.config/rofi 	~/.dotfiles
+rsync -avu --delete ~/.config/albert 	~/.dotfiles
 
 
-cd ~/Documents/.dotfiles
+cd ~/.dotfiles
 
 git commit -a -m "update" &&
 git add --all &&
