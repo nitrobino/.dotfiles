@@ -1,0 +1,7 @@
+polybar --reload HDMI1 &
+
+killall -SIGUSR2 dunst &
+
+disown
+
+exit

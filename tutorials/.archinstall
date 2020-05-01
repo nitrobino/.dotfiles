@@ -1,0 +1,123 @@
+# Arch installation guide
+
+loadkeys pt-latin1
+
+timedatectl set-ntp true
+
+cfdisk
+
+# create two partitions. one boot partition with 512M (if necessary) and make it bootable
+# use the rest for root partition
+# from now on: sda1 - boot partition; sda2 - root partition;
+
+mkfs.vfat -F32 /dev/sda1
+
+mkfs.ext4 /dev/sda2
+
+mount /dev/sda2 /mnt
+
+mkdir /mnt/boot
+
+mount /dev/sda1 /mnt/boot
+
+pacstrap /mnt base base-devel linux-lts linux-firmware intel-ucode vim networkmanager dhcpcd
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Lisbon /etc/localtime
+
+hwclock --systohc # not important if errors reported
+
+vim /etc/locale.gen # uncomment en_US.UTF-8
+
+locale-gen
+
+vim /etc/locale.conf # write:"LANG=en_US.UTF-8"
+
+vim /etc/vconsole.conf # write:"KEYMAP=pt-latin1"
+
+vim /etc/hostname # write your hostname e.g. $myhostname = ug: "ug"
+
+vim /etc/hosts # write :
+"127.0.0.1	localhost
+::1		localhost
+127.0.1.1	ug.localdomain	ug"
+
+passwd # root password
+
+pacman -S grub efibootmgr
+
+# not UEFI
+grub-install --target=i386-pc /dev/sda
+
+# UEFI
+grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=GRUB
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+systemctl enable dhcpcd
+
+exit # exit arch-chroot
+
+shutdown now
+
+#remove usb drive and boot pc
+
+# login: root
+
+useradd -m hugens # example $username = hugens
+
+passwd hugens # user password, can be different from root password
+
+usermod -aG wheel,audio,video,optical,storage hugens
+
+pacman -S vi git
+
+visudo # uncomment %wheel ALL=(ALL) ALL
+
+su hugens
+
+cd
+
+localectl set-x11-keymap pt
+
+git clone https://aur.archlinux.org/yay.git
+
+cd yay
+
+makepkg -si
+
+#################
+# essencial
+yay -S xorg compton bspwm sxhkd lightdm lightdm-gtk-greeter acpilight 
+# terminal, shell
+yay -S xfce4-terminal kitty zsh ranger neofetch htop rsync
+# fonts
+yay -S ttf-dejavu siji-git otf-ipafont
+# pdf and djvu reader
+yay -S zathura zathura-djvu zathura-pdf-poppler 
+# display
+yay -S slock redshift arandr nitrogen unclutter 
+# audio
+yay -S pulseaudio pulseaudio-alsa alsa-utils
+# bar, file explorer, notifications
+yay -S polybar albert rofi dunst 
+# gtk+ theme
+yay -S lxappearance gtk-theme-arc-gruvbox-git 
+# file manager
+yay -S thunar thunar-volman gvfs ntfs-3g
+# browsers, connection manager
+yay -S firefox brave qutebrowser chromium network-manager-applet nm-connection-editor 
+# miscellaneous
+yay -S tlp vlc qbittorrent simplescreenrecorger gscreenshot telegram-desktop spotify audacity 
+#########################
+
+git clone https://github.com/lhugens/.dotfiles
+
+cp -r .dotfiles/* .config/
+
+systemctl enable --now NetworkManager.service tlp.service tlp-sleep.service 
+
+systemctl enable --now lightdm.service

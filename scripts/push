@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo rm -r ~/Documents/HENON/fc-up201705764
+scp -r fc-up201705764@submit.grid.fe.up.pt:~/ ~/Documents/HENON/ &&
+
+exit
