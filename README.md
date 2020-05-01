@@ -10,6 +10,8 @@ Shell Configuration
 
 To get my exact shell configuration, including my .zshrc, do:
 
+``````
 git clone https://github.com/lhugens/.dotfiles
 source .dotfiles/.setup0
 source .dotfiles/.setup1
+``````
