@@ -1,3 +1,6 @@
+# paths added
+export PATH="$HOME/.dotfiles/scripts:$PATH"
+
 # history control
 HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=100000
@@ -14,6 +17,7 @@ source $ZSH/oh-my-zsh.sh
 alias cl="clear"
 alias rg="ranger"
 alias :q="exit"
+alias virtual="source ~/.dotfiles/scripts/virtual"
 
 # functions
 yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(playlist_index)%_%(title)s.%(ext)s" -v $1}

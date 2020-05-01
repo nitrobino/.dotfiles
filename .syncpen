@@ -1,3 +1,0 @@
-#!/bin/zsh
-
-rsync -avu --delete /home/hugens/Documents /run/media/hugens/HUGENS-DT/

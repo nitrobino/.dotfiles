@@ -1,9 +1,0 @@
-source /home/hugens/Documents/.dotfiles/jupyter/.virtual
-
-workon jp 
-
-jupyter-notebook &
-
-disown 
-
-exit
