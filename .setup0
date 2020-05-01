@@ -1,3 +1,5 @@
+cd
+
 if [ -d ~/.oh-my-zsh ]; then
   sudo rm -r ~/.oh-my-zsh
 fi
