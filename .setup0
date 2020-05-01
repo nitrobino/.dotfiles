@@ -1,5 +1,5 @@
-if [ -f ~/.oh_my_zsh ]; then
-  sudo rm -r .oh_my_zsh
+if [ -f ~/.oh-my-zsh ]; then
+  sudo rm -r .oh-my-zsh
 fi
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
