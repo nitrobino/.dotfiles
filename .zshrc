@@ -1,4 +1,4 @@
-# paths added
+# paths added to $PATH
 export PATH="$HOME/.dotfiles/scripts:$PATH"
 
 # history control
@@ -17,9 +17,9 @@ source $ZSH/oh-my-zsh.sh
 alias cl="clear"
 alias rg="ranger"
 alias :q="exit"
-alias virtual="source ~/.dotfiles/scripts/virtual"
 
 # functions
+s(){ source ~/.dotfiles/scripts/$1 }
 yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(playlist_index)%_%(title)s.%(ext)s" -v $1}
 make(){ g++ -I/usr/local/include -L/usr/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 }
 fword(){ find / 2>/dev/null | grep -ia "$1"  }
