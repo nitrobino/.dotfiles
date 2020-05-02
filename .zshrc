@@ -10,7 +10,7 @@ HISTFILESIZE=2000000
 export EDITOR=/usr/bin/vim
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="bira"
-plugins=(git copydir web-search zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
 # aliases
@@ -21,12 +21,13 @@ alias :q="exit"
 # functions
 s(){ source ~/.dotfiles/scripts/$1 }
 yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(playlist_index)%_%(title)s.%(ext)s" -v $1}
-make(){ g++ -I/usr/local/include -L/usr/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 }
+c(){ g++ -I/opt/local/include -L/opt/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 -Wall }
+cr(){ g++ -I/opt/local/include -L/opt/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 -Wall; ./$1 $2 }
+syncgit(){ git commit -a -m "update" && git add --all && git push origin master  }
 fword(){ find / 2>/dev/null | grep -ia "$1"  }
 scanhosts(){ nmap -sLP 192.168.1.0/24 | grep -a "lan" }
 paclog(){ grep -iE 'installed|upgraded' /var/log/pacman.log }
 
 # local settings
-if [ -f ~/.localrc ]; then 
-  source ~/.localrc
-fi
+[ -f ~/.localrc ] && source ~/.localrc
+

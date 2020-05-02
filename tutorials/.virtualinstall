@@ -10,16 +10,14 @@ mkdir -p $WORKON_HOME
 
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_VIRTUALENV=/home/hugens/.local/bin/virtualenv
-source /home/hugens/.local/bin/virtualenvwrapper.sh
+export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+source $HOME/.local/bin/virtualenvwrapper.sh
 
 mkdir /home/hugens/Documents/JP
 
 mkvirtualenv -a /home/hugens/Documents/JP jp
 
 ---------------------------------------------------
-
-#!/bin/zsh
 
 pip install jupyter numpy matplotlib numba pandas jupyterthemes scipy xlrd
 
@@ -34,9 +32,8 @@ pip install jupyter_nbextensions_configurator
 jupyter nbextensions_configurator enable --user
 
 ----------------------------------------------------
-#!/bin/zsh
 
-cd /home/hugens/.ipython/profile_default/startup
+cd $HOME/.ipython/profile_default/startup
 
 printf '%s\n' 'from jupyterthemes import jtplot' 'jtplot.style(theme='gruvboxd')' >startup.ipy
 

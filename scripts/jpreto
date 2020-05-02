@@ -1,8 +1,11 @@
 #!/bin/zsh
 
-rsync -avz ~/Documents/.dotfiles/jupyter/startup.ipy ~/.ipython/profile_default/startup
+rsync -avz ~/.dotfiles/files/startup.ipy ~/.ipython/profile_default/startup
 
-source ~/Documents/.dotfiles/jupyter/.virtual
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+source $HOME/.local/bin/virtualenvwrapper.sh
 
 workon jp
 
