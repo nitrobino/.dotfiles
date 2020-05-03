@@ -15,7 +15,7 @@ super + w
 
 # file manager
 super + e
-    	thunar	
+    	dolphin	
 
 # lock
 super + {_,shift + }p

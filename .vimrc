@@ -82,3 +82,7 @@ let g:fzf_vim_statusline = 0
 colorscheme gruvbox "colorscheme
 autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
 set background=dark "Color scheme settings
+
+" cpp compilation 
+noremap <silent> ,m <ESC>:wa<CR>:!make<CR>
+inoremap <silent> ,m  <ESC>:wa<CR>:!make<CR>
