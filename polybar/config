@@ -59,7 +59,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 ;modules-center = mpd
-modules-right = alsa backlight-acpi filesystem memory cpu temperature battery date 
+modules-right = alsa backlight-acpi updates-arch-combined filesystem memory cpu temperature battery date 
 
 tray-position = center
 tray-padding = 2
@@ -111,7 +111,7 @@ font-2 = siji:pixelsize=10;1
 
 modules-left = bspwm
 ;modules-center = mpd
-modules-right = alsa backlight-acpi filesystem memory cpu temperature battery date 
+modules-right = alsa backlight-acpi updates-arch-combined filesystem memory cpu temperature battery date 
 
 tray-position = center
 ;<<tray-padding = 2
@@ -130,23 +130,6 @@ tray-position = center
 
 cursor-click = pointer
 cursor-scroll = ns-resize
-
-[module/updates-arch]
-type = custom/script
-exec = ~/.config/polybar/updates-arch.sh
-interval = 600
-format-prefix = 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-
-[module/updates-arch-combined]
-type = custom/script
-exec = ~/.config/polybar/updates-arch-combined.sh
-interval = 600
-format-prefix = " " 
-format-prefix-foreground = ${colors.foreground-alt}
-format-underline = #0a6cf5
-
 
 [module/xwindow]
 type = internal/xwindow
@@ -501,3 +484,9 @@ margin-top = 5
 margin-bottom = 5
 
 ; vim:ft=dosini
+; ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+[module/updates-arch-combined]
+type = custom/script
+exec = ~/.config/polybar/updates-arch-combined.sh
+interval = 600

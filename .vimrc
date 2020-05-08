@@ -1,33 +1,51 @@
-"if empty(glob('~/.vim/autoload/plug.vim'))
-"	silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-"endif
-"
-"plugins!
-call plug#begin('~/.vim/plugged')
-Plug 'vim-airline/vim-airline' "airline see bottom of bar
-Plug 'vim-airline/vim-airline-themes' "airline theme theme
-Plug 'morhetz/gruvbox' "Theme
-Plug 'AlessandroYorba/Alduin' "airline
-Plug 'jiangmiao/auto-pairs' "auto completes [] and ()
-Plug 'scrooloose/nerdtree' "See dirs and files
-Plug 'qxxxb/vim-searchhi' "Highlight search in cursor with a different color
-call plug#end()
-"
-"Required
-filetype plugin indent on    " required
+" Vundle
+filetype off
 
-"Split tabs
-set splitbelow splitright
+let g:vundle_default_git_proto = 'git'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" Bundles
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'sjl/gundo.vim'
+Plugin 'godlygeek/tabular'
+Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'scrooloose/nerdtree'
+Plugin 'bfrg/vim-cpp-modern'
+Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'junegunn/fzf'
+Plugin 'Yggdroot/indentLine'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'qxxxb/vim-searchhi' "Highlight search in cursor with a different color
+
+call vundle#end()
+
+
+" Required for vundle
+"filetype plugin indent on 
+filetype plugin on 
 
 " Highlighting
 syntax on
 
 set encoding=utf-8
 
+" Indentation 
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_guide_size = 1
+filetype plugin indent on
+:set cindent
+
+" Airline config
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='powerlineish'
+
 " History
-set history=1000
+set history=50
 
 " Display
 set ls=2
@@ -36,53 +54,125 @@ set showcmd
 set modeline
 set ruler
 set title
-set rnu
+set nu
+
+" Line wrapping
+set nowrap
+set linebreak
+set showbreak=▹
+
+" Auto indent what you can
+set autoindent
 
 " Searching
 set ignorecase
 set smartcase
 set gdefault
 set hlsearch
-" Press Space to turn off highlighting and clear any message already displayed.
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 set showmatch
-set incsearch
 
 " Enable jumping into files in a search buffer
 set hidden 
 
+" Make backspace a bit nicer
+set backspace=eol,start,indent
+
+" Indentation
+set shiftwidth=4
+set tabstop=4
+set softtabstop=4
+set shiftround
+set expandtab
+
 " Disable mouse
 set mouse=
 
-" Visual prompt for command completion
-set wildmenu
-
-" Make backspace a bit nicer
-set backspace=eol,start,indent
+" Colorscheme
+if &t_Co == 256
+    try
+        color xoria256
+    catch /^Vim\%((\a\+)\)\=:E185/
+        " Oh well
+    endtry
+endif
 
 " Switch tabs
 map 8 <Esc>:tabe 
 map 9 gT
 map 0 gt
 
-"Extra
-let g:airline_powerline_fonts = 1
-let g:powerline_pycmd="py3"
-let g:airline#extensions#tabline#enabled = 1 "airline thing
-let g:airline_theme='alduin'
-let g:user_emmet_leader_key='<C-,>'
-let g:gruvbox_italic='1'
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_invert_selection='0'
-let g:gruvbox_termcolors='256'
-let g:AutoPairsFlyMode = 1
-let g:fzf_buffers_jump = 1
-let g:fzf_vim_statusline = 0
+" Gundo toggle
+map <F5> <Esc>:GundoToggle<CR>
 
-colorscheme gruvbox "colorscheme
-autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-set background=dark "Color scheme settings
+" Toggle line-wrap
+map <F6> <Esc>:set wrap!<CR>
+
+" Open file under cursor in new tab
+map <F9> <Esc><C-W>gF<CR>:tabm<CR>
+
+" Direction keys for wrapped lines
+nnoremap <silent> k gk
+nnoremap <silent> j gj
+nnoremap <silent> <Up> gk
+nnoremap <silent> <Down> gj
+inoremap <silent> <Up> <Esc>gka
+inoremap <silent> <Down> <Esc>gja
+
+" Bash / emacs keys for command line
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+
+" Base64 decode word under cursor
+nmap <Leader>b :!echo <C-R><C-W> \| base64 -d<CR>
+
+" grep recursively for word under cursor
+nmap <Leader>g :tabnew\|read !grep -Hnr '<C-R><C-W>'<CR>
+
+" sort the buffer removing duplicates
+nmap <Leader>s :%!sort -u --version-sort<CR>
+
+" Visual prompt for command completion
+set wildmenu
+
+" Write current file with sudo perms
+"command! W w !sudo tee % > /dev/null
+command! W w
+
+" folding
+set nofoldenable
+
+" Open word under cursor as ctag in new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 
 " cpp compilation 
-noremap <silent> ,m <ESC>:wa<CR>:!make<CR>
-inoremap <silent> ,m  <ESC>:wa<CR>:!make<CR>
+noremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
+inoremap <silent> ,m  <ESC>:wa<CR>:!make compile<CR>
+
+if $VIMENV == 'talk'
+  set background=light
+  let g:solarized_termcolors=256
+  colo solarized
+  noremap <Space> :n<CR>
+  noremap <Backspace> :N<CR>
+else
+  " Trans background
+  hi Normal ctermbg=none
+  hi NonText ctermbg=none
+endif
+
+if $VIMENV == 'prev'
+  noremap <Space> :n<CR>
+  noremap <Backspace> :N<CR>
+  set noswapfile
+endif
+
+set noesckeys
+
+set nocompatible
+
+" NERDtree
+let NERDTreeShowHidden=1
+map <C-n> :NERDTreeToggle<CR>
+
+" fzf 
+map <C-f> :FZF<CR>
