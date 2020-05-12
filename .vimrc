@@ -1,3 +1,6 @@
+" Install everything
+" autocmd VimEnter * PluginInstall
+
 " Vundle
 filetype off
 
@@ -20,6 +23,7 @@ Plugin 'junegunn/fzf'
 Plugin 'Yggdroot/indentLine'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'qxxxb/vim-searchhi' "Highlight search in cursor with a different color
+Plugin 'jiangmiao/auto-pairs' "auto completes [] and ()
 
 call vundle#end()
 
@@ -148,6 +152,19 @@ map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 noremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
 inoremap <silent> ,m  <ESC>:wa<CR>:!make compile<CR>
 
+noremap <silent> ,s <ESC>:wq<CR>
+inoremap <silent> ,s <ESC>:wq<CR>
+noremap <silent> ,w <ESC>:w<CR>
+inoremap <silent> ,w  <ESC>:w<CR>
+noremap <silent> ,W <ESC>:wa<CR>
+inoremap <silent> ,W  <ESC>:wa<CR>
+noremap <silent> ,S <ESC>:wqa<CR>
+inoremap <silent> ,S <ESC>:wqa<CR>
+noremap <silent> ,x <ESC>:q!<CR>
+noremap <silent> ,x <ESC>:q!<CR>
+inoremap <silent> ,n <ESC>:w<CR>hi<Del> 
+
+
 if $VIMENV == 'talk'
   set background=light
   let g:solarized_termcolors=256
@@ -176,3 +193,5 @@ map <C-n> :NERDTreeToggle<CR>
 
 " fzf 
 map <C-f> :FZF<CR>
+inoremap <silent> ,f <ESC>:FZF<CR>
+nnoremap <silent> ,f :FZF<CR>

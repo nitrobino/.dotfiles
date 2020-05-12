@@ -6,9 +6,9 @@ super + shift + m
 super + d
 	kitty -e ranger ~/Documents
 
-super + t 
-	kitty -e vim ~/Documents/.todo
-	
+super + a
+    guake -t
+
 # browser
 super + w
     	brave
@@ -22,7 +22,7 @@ super + {_,shift + }p
 	{slock & systemctl suspend, shutdown now}
 
 # redshift
-super + {_,shift + }a
+super + {_,shift + }r
 	redshift {-O 3600,-x}
 
 # 0/50 screen brightness

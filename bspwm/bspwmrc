@@ -28,17 +28,15 @@ bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled
 bspc rule -a '*:albert' focus=on
 bspc rule -a '*:unimatrix' state=fullscreen
+bspc rule -a '*:guake' state=floating focus=on
 
 compton -b &
 dunst &
 nm-applet &
 albert &
+guake &
 unclutter --ignore-scrolling --timeout 2 &
 $HOME/.config/polybar/launch.sh
 redshift -O 3600
 xset s off
 killall -SIGUSR1 dunst
-
-#dwall -catalina &
-#pscircle --output=./Pictures/pscircle.png --background-color=000000ff
-#nitrogen --set-zoom-fill --save ~/Pictures/pscircle.png
