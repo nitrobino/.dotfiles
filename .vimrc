@@ -1,5 +1,7 @@
 " Install everything
-" autocmd VimEnter * PluginInstall
+" First install vundle:
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Then type :PluginInstall and run
 
 " Vundle
 filetype off
@@ -10,6 +12,7 @@ call vundle#begin()
 
 " Bundles
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'TomNomNom/xoria256.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'godlygeek/tabular'
@@ -35,7 +38,19 @@ filetype plugin on
 " Highlighting
 syntax on
 
+" Line number display
+set number relativenumber
+
 set encoding=utf-8
+
+" Colorscheme
+if &t_Co == 256
+    try
+        color xoria256
+    catch /^Vim\%((\a\+)\)\=:E185/
+        " Oh well
+    endtry
+endif
 
 " Indentation 
 let g:indent_guides_enable_on_vim_startup = 1
@@ -88,25 +103,17 @@ set softtabstop=4
 set shiftround
 set expandtab
 
-" Disable mouse
+" Others
 set mouse=
+set noesckeys
+set nocompatible
+set wildmenu
+set nofoldenable
 
-" Colorscheme
-if &t_Co == 256
-    try
-        color xoria256
-    catch /^Vim\%((\a\+)\)\=:E185/
-        " Oh well
-    endtry
-endif
+" set default vim clipboard to system clipboard
+set clipboard=unnamedplus
 
-" Switch tabs
-map 8 <Esc>:tabe 
-map 9 gT
-map 0 gt
-
-" Gundo toggle
-map <F5> <Esc>:GundoToggle<CR>
+" KEYBINDINGS
 
 " Toggle line-wrap
 map <F6> <Esc>:set wrap!<CR>
@@ -126,66 +133,13 @@ inoremap <silent> <Down> <Esc>gja
 cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 
-" Base64 decode word under cursor
-nmap <Leader>b :!echo <C-R><C-W> \| base64 -d<CR>
-
-" grep recursively for word under cursor
-nmap <Leader>g :tabnew\|read !grep -Hnr '<C-R><C-W>'<CR>
-
-" sort the buffer removing duplicates
-nmap <Leader>s :%!sort -u --version-sort<CR>
-
-" Visual prompt for command completion
-set wildmenu
-
 " Write current file with sudo perms
 "command! W w !sudo tee % > /dev/null
 command! W w
 
-" folding
-set nofoldenable
-
-" Open word under cursor as ctag in new tab
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-
 " cpp compilation 
 noremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
 inoremap <silent> ,m  <ESC>:wa<CR>:!make compile<CR>
-
-noremap <silent> ,s <ESC>:wq<CR>
-inoremap <silent> ,s <ESC>:wq<CR>
-noremap <silent> ,w <ESC>:w<CR>
-inoremap <silent> ,w  <ESC>:w<CR>
-noremap <silent> ,W <ESC>:wa<CR>
-inoremap <silent> ,W  <ESC>:wa<CR>
-noremap <silent> ,S <ESC>:wqa<CR>
-inoremap <silent> ,S <ESC>:wqa<CR>
-noremap <silent> ,x <ESC>:q!<CR>
-noremap <silent> ,x <ESC>:q!<CR>
-inoremap <silent> ,n <ESC>:w<CR>hi<Del> 
-
-
-if $VIMENV == 'talk'
-  set background=light
-  let g:solarized_termcolors=256
-  colo solarized
-  noremap <Space> :n<CR>
-  noremap <Backspace> :N<CR>
-else
-  " Trans background
-  hi Normal ctermbg=none
-  hi NonText ctermbg=none
-endif
-
-if $VIMENV == 'prev'
-  noremap <Space> :n<CR>
-  noremap <Backspace> :N<CR>
-  set noswapfile
-endif
-
-set noesckeys
-
-set nocompatible
 
 " NERDtree
 let NERDTreeShowHidden=1
@@ -195,3 +149,22 @@ map <C-n> :NERDTreeToggle<CR>
 map <C-f> :FZF<CR>
 inoremap <silent> ,f <ESC>:FZF<CR>
 nnoremap <silent> ,f :FZF<CR>
+
+" Cycle through open buffers
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" Better window navigation
+"nnoremap <C-j> <C-w>j
+"nnoremap <C-k> <C-w>k
+"nnoremap <C-h> <C-w>h
+"nnoremap <C-l> <C-w>l
+nnoremap <silent> ,l  <C-w>h
+nnoremap <silent> ,ç  <C-w>l
+
+" Yanking and pasting to system clipoard
+" note: install gVim alongside to work out of the box
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+noremap <Leader>Y "+y
+noremap <Leader>P "+p

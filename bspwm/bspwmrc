@@ -1,6 +1,6 @@
 #! /bin/sh
 
-sxhkd &
+sxhkd  &
 
 my_laptop_external_monitor=$(xrandr --query | grep 'HDMI-1')
 if [[ $my_laptop_external_monitor = *connected* ]]; then
@@ -30,7 +30,7 @@ bspc rule -a '*:albert' focus=on
 bspc rule -a '*:unimatrix' state=fullscreen
 bspc rule -a '*:guake' state=floating focus=on
 
-compton -b &
+picom -b &
 dunst &
 nm-applet &
 albert &
