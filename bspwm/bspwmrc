@@ -36,7 +36,6 @@ nm-applet &
 albert &
 guake &
 unclutter --ignore-scrolling --timeout 2 &
-$HOME/.config/polybar/launch.sh
 redshift -O 3600
 xset s off
 killall -SIGUSR1 dunst

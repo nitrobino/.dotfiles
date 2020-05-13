@@ -1,5 +1,12 @@
 # Custom keybindings
 
+# preselect the ratio
+super + ctrl + {1,2}
+    polybar --reload {eDP1, HDMI1} &
+
+super + ctrl + 0
+    killall -q polybar; bspc config bottom_padding 0
+
 super + shift + m
 	kitty -e unimatrix -af -l k -s 95
 
@@ -98,8 +105,8 @@ super + {p,b,comma,period}
 	bspc node -f @{parent,brother,first,second}
 
 # focus the next/previous node in the current desktop
-super + {_,shift + }c
-	bspc node -f {next,prev}.local
+super + shift + Tab
+	bspc node -f next.local
 
 # focus the next/previous desktop in the current monitor
 super + bracket{left,right}
@@ -126,10 +133,6 @@ super + {_,shift + }{1-9,0}
 # preselect the direction
 # super + ctrl + {h,j,k,l}
 # 	bspc node -p {west,south,north,east}
-# 
-# # preselect the ratio
-# super + ctrl + {1-9}
-# 	bspc node -o 0.{1-9}
 # 
 # # cancel the preselection for the focused node
 # super + ctrl + space

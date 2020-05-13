@@ -12,7 +12,6 @@ call vundle#begin()
 
 " Bundles
 Plugin 'VundleVim/Vundle.vim'
-Plugin 'TomNomNom/xoria256.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'sjl/gundo.vim'
 Plugin 'godlygeek/tabular'
@@ -42,15 +41,6 @@ syntax on
 set number relativenumber
 
 set encoding=utf-8
-
-" Colorscheme
-if &t_Co == 256
-    try
-        color xoria256
-    catch /^Vim\%((\a\+)\)\=:E185/
-        " Oh well
-    endtry
-endif
 
 " Indentation 
 let g:indent_guides_enable_on_vim_startup = 1
@@ -138,8 +128,8 @@ cnoremap <C-e> <End>
 command! W w
 
 " cpp compilation 
-noremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
-inoremap <silent> ,m  <ESC>:wa<CR>:!make compile<CR>
+noremap  <silent> ,m <ESC>:wa<CR>:!make compile<CR>
+inoremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
 
 " NERDtree
 let NERDTreeShowHidden=1
