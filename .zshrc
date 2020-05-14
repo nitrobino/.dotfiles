@@ -20,26 +20,51 @@ alias rg="ranger"
 alias :q="exit"
 
 ## functions
+
+# opening jupyter-notebook
+jp(){    
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    export WORKON_HOME=$HOME/.virtualenvs
+    export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+    source $HOME/.local/bin/virtualenvwrapper.sh
+    workon jp && 
+    jupyter-notebook &
+    disown 
+    exit
+}
+
+
 # cpp
 c(){ g++ -I/opt/local/include -L/opt/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 -Wall }
 cr(){ g++ -I/opt/local/include -L/opt/local/lib -lgmp -lmpfr -std=c++11 $1.cpp -o $1 -Wall; ./$1 $2 }
+
 # git 
 gp(){ git push origin $1 }
 gc(){ git commit -a -m $1 }
 gtb(){ git switch $(git branch | grep -v "*") }
 syncgit(){ git add --all && git commit -a -m $1 && git push origin $2  }
-#  
-paclog(){ grep -iE 'installed|upgraded' /var/log/pacman.log }
-fword(){ find / 2>/dev/null | grep -ia "$1"  }
-scanhosts(){ nmap -sLP 192.168.1.0/24 | grep -a "lan" }
-s(){ source ~/.dotfiles/scripts/$1 }
-yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(playlist_index)%_%(title)s.%(ext)s" -v $1}
+
 #crypto
 hash(){ printf '%s\n' "$1" | openssl sha512 | awk '{ gsub("(stdin)= ","",$2); print $2}' }
 enc(){
     echo $1
     echo $2
     printf '%s\n' "$1" | openssl enc -e -aes-256-cbc -a -md sha512 -pbkdf2 -iter 100000 -salt -k "$2" | tr '/' '-' 
+}
+
+# others  
+paclog(){ grep -iE 'installed|upgraded' /var/log/pacman.log }
+fword(){ find / 2>/dev/null | grep -ia "$1"  }
+scanhosts(){ nmap -sLP 192.168.1.0/24 | grep -a "lan" }
+s(){ source ~/.dotfiles/scripts/$1 }
+yt(){ youtube-dl -f best -ciw -o "%(playlist)s_%(playlist_index)%_%(title)s.%(ext)s" -v $1}
+
+
+# lyx to latex to pdf to png into md
+unotes(){
+    cd ~/Documents/HENON/git/extra && 
+    pdftoppm Notes.pdf Notes -png &&
+    cd - >/dev/null
 }
 
 # local settings

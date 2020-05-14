@@ -130,6 +130,12 @@ command! W w
 " cpp compilation 
 noremap  <silent> ,m <ESC>:wa<CR>:!make compile<CR>
 inoremap <silent> ,m <ESC>:wa<CR>:!make compile<CR>
+noremap  <silent> ,n <ESC>:wa<CR>:!make<CR>
+inoremap <silent> ,n <ESC>:wa<CR>:!make<CR>
+
+" clean highlighted words from search
+noremap  <silent> ,c <ESC>:nohl<CR>
+inoremap <silent> ,c <ESC>:nohl<CR>
 
 " NERDtree
 let NERDTreeShowHidden=1
@@ -158,3 +164,6 @@ noremap <Leader>y "*y
 noremap <Leader>p "*p
 noremap <Leader>Y "+y
 noremap <Leader>P "+p
+
+" Tabularize equations
+map <C-t> :'<,'>Tabularize /=<CR>
